@@ -15,7 +15,7 @@ Initial Setup
 + edit app-config.xml with a path to starling framework
 + edit build.xml with a path to the flex sdk
 + create a bin-release directory in the same folder as the bin-debug
-+ use command 'ant' to build
++ use command 'ant' to build or 'ant release' to build release
 
 Note
 ----
