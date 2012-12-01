@@ -1,0 +1,18 @@
+
+<!-- this file is used for debug compiles -->
+<flex-config>
+   <compiler>
+
+      <debug>false</debug>
+
+      <omit-trace-statements>true</omit-trace-statements>
+
+      <optimize>true</optimize>
+
+      <verbose-stacktraces>false</verbose-stacktraces>
+      
+   </compiler>
+
+   <output>bin-release/main.swf</output>
+
+</flex-config>

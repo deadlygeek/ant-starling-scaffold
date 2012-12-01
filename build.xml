@@ -1,0 +1,76 @@
+<project name="BUILD SCRIPT" default="debug" basedir=".">
+
+    <!--
+
+     Location and version of the mxmlc compiler
+     example: /Users/deadlygeek/Documents/dev/flash/libs/flex_sdk/flex_sdk_4.6.0
+
+     -->
+    <property name="flex_SDK_base" value="/path/to/flex/sdk/" />
+    <property name="mxmlc" value="${flex_SDK_base}/bin/mxmlc" />
+
+    <!--
+
+    Main class for compiling
+
+     -->
+    <property name="main_class" value="src/Main.as" />
+
+    <target name="release" >
+        <antcall target="headerGraphic">
+            <param name="customHeaderMessage" value="release-build" />
+        </antcall>
+
+        <property name="buildType" value="app-config-release.xml" />
+
+        <antcall target="build" />
+    </target>
+
+    <!--
+
+     Build options - default is 'debug'
+
+     -->
+    <target name="debug" >
+        <antcall target="headerGraphic">
+            <param name="customHeaderMessage" value="debug-build" />
+        </antcall>
+
+        <property name="buildType" value="app-config-debug.xml" />
+
+        <antcall target="build" />
+    </target>
+
+    <target name="headerGraphic" >
+        <echo>
+            <![CDATA[
+             _____ _             _ _             
+            / ___|| |_ __ _ _ __| (_)_ __   __ _ 
+            \___ \| __/ _` | '__| | | '_ \ / _` |
+             ___) | || (_| | |  | | | | | | (_| |
+            |____/ \__\__,_|_|  |_|_|_| |_|\__, |
+                                           |___/ 
+            ${customHeaderMessage}
+            ]]>
+        </echo>
+    </target>
+
+    <!--
+
+    Base build script.
+
+    This should not be triggered from the command line (i.e. ant build) as the default debug setting will not be set
+
+    -->
+    <target name="build">
+
+      <exec executable="${mxmlc}">
+          <arg line="-load-config='${flex_SDK_base}/frameworks/airmobile-config.xml'" />
+          <arg line="-load-config+='${basedir}/app-config.xml'" />
+          <arg line="-load-config+='${basedir}/${buildType}'" />
+          <arg line="${main_class}" />
+      </exec>
+  </target>
+
+</project>
+

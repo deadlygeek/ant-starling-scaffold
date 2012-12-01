@@ -1,0 +1,52 @@
+<flex-config>
+   <benchmark>true</benchmark>
+   <compiler>
+
+      <incremental>false</incremental>
+
+      <locale>
+         <locale-element>en_US</locale-element>
+      </locale>
+
+      <mobile>false</mobile>
+
+      <show-deprecation-warnings>true</show-deprecation-warnings>
+
+      <source-path>
+          <!-- path to the startling files 
+          example: /Users/deadlygeek/Documents/dev/flash/libs/starlingFiles/starling/src/
+          -->
+          <path-element>path/to/starling/framework/</path-element>
+
+          <!-- path to your working files -->
+          <path-element>src/</path-element>
+      </source-path>
+
+      <use-resource-bundle-metadata>true</use-resource-bundle-metadata>
+      
+   </compiler>
+
+   <default-background-color>0xFFFFFF</default-background-color>
+
+   <default-frame-rate>60</default-frame-rate>
+
+   <default-size>
+      <width>800</width>
+      <height>600</height>
+   </default-size>
+
+   <remove-unused-rsls>true</remove-unused-rsls>
+
+   <size-report>size-report.xml</size-report>
+
+   <swf-version>14</swf-version>
+
+   <target-player>11.1</target-player>
+
+   <use-network>true</use-network>
+
+   <version>true</version>
+
+   <warnings>true</warnings>
+
+</flex-config>
